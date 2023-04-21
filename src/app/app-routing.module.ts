@@ -19,10 +19,6 @@ const routes: Routes = [
     path: 'farmer-products',
     loadChildren: () => import('./farmer-products/farmer-products.module').then(m => m.FarmerProductsPageModule)
   },
-  // {
-  //   path: 'cart',
-  //   loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
-  // },
   {
     path: '**',
     redirectTo: 'products',
