@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { User } from '../models/user';
 
 import { AuthService } from './auth.service';
 
@@ -53,4 +54,16 @@ describe('AuthService', () => {
     service.setUser(user);
     expect(service.currentUser).toEqual(user);
   });
+
+  it('should logout', () => {
+    service.currentUser = {} as User;
+    service.logout();
+    expect(service.currentUser).toEqual(null as any);
+  });
+
+  it('should getUser', () => {
+    service.currentUser = {} as User;
+    expect(service.getUser()).toEqual({} as User);
+  })
+
 });
