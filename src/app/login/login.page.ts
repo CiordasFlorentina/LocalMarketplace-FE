@@ -36,8 +36,7 @@ export class LoginPage implements OnInit {
 
   switchMode(mode: string) {
     this.mode = mode;
-    this.registerForm.reset();
-    this.loginForm.reset();
+    this.resetForms();
   }
 
   hasError(): boolean {
@@ -77,7 +76,6 @@ export class LoginPage implements OnInit {
       .subscribe((user: User) => {
         this.authService.setUser(user);
         this.navigate(user.farmer);
-        this.resetForms();
       });
   }
 
