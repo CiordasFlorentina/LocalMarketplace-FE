@@ -10,7 +10,7 @@ import { User } from '../models/user';
 export class AuthService {
   // currentUser: User | null = null;
   currentUser: User | null = {
-    farmer: true,
+    farmer: false,
     id: '1'
   } as any;
   url = environment.url;

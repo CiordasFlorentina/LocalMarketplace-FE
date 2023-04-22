@@ -60,8 +60,8 @@ export class LoginPage implements OnInit {
       .pipe(first())
       .subscribe((user: User) => {
         this.authService.setUser(user);
-        this.navigate(user.farmer);
         this.resetForms();
+        this.navigate(user.farmer);
       });
   }
 
@@ -74,7 +74,9 @@ export class LoginPage implements OnInit {
     })
       .pipe(first())
       .subscribe((user: User) => {
+        this.mode = 'Login';
         this.authService.setUser(user);
+        this.resetForms();
         this.navigate(user.farmer);
       });
   }
