@@ -108,11 +108,11 @@
                       <ion-button size="small" shape="round" [disabled]="true">
                         <span class="product-category">{{product.category}}</span>
                       </ion-button>
-                      <ion-button *ngIf="product.availability"
+                      <ion-button *ngIf="product.available"
                                   size="small" shape="round" color="secondary" [disabled]="true">
-                        In Stock: <span class="product-availability">{{product.availability}}</span>
+                        In Stock: <span class="product-availability">{{product.available}}</span>
                       </ion-button>
-                      <ion-button *ngIf="!product.availability"
+                      <ion-button *ngIf="!product.available"
                                   size="small" shape="round" color="danger" [disabled]="true">
                         Out Of Stock
                       </ion-button>
@@ -122,7 +122,7 @@
                       <ion-label color="primary" class="price"><span class="product-price">{{product.price}}</span>$
                       </ion-label>
                     </ion-item>
-                    <ion-button color="primary" expand="block" [disabled]="!product.availability">
+                    <ion-button color="primary" expand="block" [disabled]="!product.available">
                       <ion-icon name="cart" slot="start"></ion-icon>
                       Add To Cart
                     </ion-button>

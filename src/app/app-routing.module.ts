@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./products/products.module').then(m => m.ProductsPageModule)
   },
   {
+    path: 'farmer-products',
+    loadChildren: () => import('./farmer-products/farmer-products.module').then( m => m.FarmerProductsPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full'

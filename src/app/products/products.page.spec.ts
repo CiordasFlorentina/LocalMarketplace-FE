@@ -44,8 +44,8 @@ describe('ProductsPage', () => {
   describe('show list of products', () => {
     beforeEach(() => {
       component.products = [
-        {name: 'Carrots', image: '', price: 25, category: 'vegetables', availability: 2},
-        {name: 'Tomatoes', image: '', price: 15, category: 'vegetables', availability: 3},
+        {name: 'Carrots', image: '', price: 25, category: 'vegetables', available: 2},
+        {name: 'Tomatoes', image: '', price: 15, category: 'vegetables', available: 3},
       ];
       fixture.detectChanges();
     })

@@ -1,13 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
+import { environment } from '../../environments/environment';
 import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-
-  constructor() {
+  url = environment.url;
+  constructor(private httpClient: HttpClient) {
   }
 
   products = [
@@ -95,15 +97,15 @@ export class ProductsService {
   }
 
   getFarmersProducts(farmerId: number): Observable<Product[]> {
-    return of(this.products)
+    return this.httpClient.get<Product[]>(`${this.url}/product/farmer/${farmerId}/all`);
   }
 
   addProduct(farmerId: number, product: Product): Observable<any> {
-    return of(true);
+    return this.httpClient.post<Product[]>(`${this.url}/product/farmer/${farmerId}/add`, product);
   }
 
   editProduct(product: Product): Observable<any> {
-    return of(true);
+    return this.httpClient.post<Product[]>(`${this.url}/product/update/${product.id}`, product);
   }
 
   getCategories(): string[] {
