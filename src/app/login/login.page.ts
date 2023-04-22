@@ -62,8 +62,7 @@ export class LoginPage implements OnInit {
       .subscribe((user: User) => {
         this.authService.setUser(user);
         this.navigate(user.farmer);
-        this.registerForm.reset();
-        this.loginForm.reset();
+        this.resetForms();
       });
   }
 
@@ -78,12 +77,18 @@ export class LoginPage implements OnInit {
       .subscribe((user: User) => {
         this.authService.setUser(user);
         this.navigate(user.farmer);
-        this.registerForm.reset();
-        this.loginForm.reset();
+        this.resetForms();
       });
   }
 
   private navigate(farmer: boolean): void {
     farmer ? this.router.navigate(['/farmer-products']) : this.router.navigate(['/products']);
+  }
+
+  private resetForms() {
+    this.registerForm.reset();
+    this.loginForm.reset();
+    this.farmerCheck.reset()
+    this.customerCheck.reset()
   }
 }
