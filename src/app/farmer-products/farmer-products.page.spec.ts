@@ -63,4 +63,16 @@ describe('FarmerProductsPage', () => {
       })
     })
   }));
+
+  it('should open modal with product for edit', waitForAsync(() => {
+    modalControllerMock.create.and.returnValue(
+      {
+        present: jasmine.createSpy(),
+        onDidDismiss: jasmine.createSpy().and.returnValue(Promise.resolve({data: {product: null, mode: 'add'}})),
+      }
+    )
+    component.openModal({} as Product).then(() => {
+      expect(productsServiceMock.addProduct).toHaveBeenCalled();
+    })
+  }));
 });

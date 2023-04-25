@@ -19,7 +19,7 @@ export class ProductsService {
       price: 25,
       category: 'vegetables', id: 1,
 
-      availability: 5
+      available: 5
     },
     {
       name: 'tomatoes',
@@ -27,7 +27,7 @@ export class ProductsService {
       price: 25,
       category: 'vegetables', id: 1,
 
-      availability: 0
+      available: 0
     },
     {
       name: 'salad',
@@ -35,7 +35,7 @@ export class ProductsService {
       price: 25,
       category: 'vegetables', id: 2,
 
-      availability: 5
+      available: 5
     },
     {
       name: 'carrots',
@@ -43,7 +43,7 @@ export class ProductsService {
       price: 25,
       category: 'vegetables', id: 3,
 
-      availability: 5
+      available: 5
     },
     {
       name: 'tomatoes',
@@ -51,7 +51,7 @@ export class ProductsService {
       price: 25,
       category: 'vegetables', id: 1,
 
-      availability: 0
+      available: 0
     },
     {
       name: 'salad',
@@ -59,7 +59,7 @@ export class ProductsService {
       price: 25,
       category: 'vegetables', id: 1,
 
-      availability: 5
+      available: 5
     },
     {
       name: 'carrots',
@@ -67,7 +67,7 @@ export class ProductsService {
       price: 25,
       category: 'vegetables', id: 1,
 
-      availability: 5
+      available: 5
     },
     {
       name: 'tomatoes',
@@ -75,7 +75,7 @@ export class ProductsService {
       price: 25,
       category: 'vegetables', id: 1,
 
-      availability: 0
+      available: 0
     },
     {
       name: 'salad',
@@ -83,7 +83,7 @@ export class ProductsService {
       price: 25,
       category: 'vegetables', id: 1,
 
-      availability: 5
+      available: 5
     },
   ];
 

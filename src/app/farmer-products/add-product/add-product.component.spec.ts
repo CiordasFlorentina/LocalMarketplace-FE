@@ -50,7 +50,7 @@ describe('AddProductComponent', () => {
     component.form?.patchValue({
       name: 'name',
       price: 2,
-      availability: 3,
+      available: 3,
       category: 'vegetables'
     })
     component.save();
@@ -58,7 +58,7 @@ describe('AddProductComponent', () => {
       product: {
         name: 'name',
         price: 2,
-        availability: 3,
+        available: 3,
         category: 'vegetables',
         image: null
       },
@@ -83,7 +83,7 @@ describe('AddProductComponent', () => {
         id: 11,
         name: 'name',
         price: 2,
-        availability: 3,
+        available: 3,
         category: 'vegetables',
         image: ''
       },

@@ -1,13 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { Product } from '../models/product';
 
 import { ProductsService } from './products.service';
 
 describe('ProductsService', () => {
   let service: ProductsService;
+  let httpCMock: jasmine.SpyObj<any>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    httpCMock = {
+      get: jasmine.createSpy(),
+      post: jasmine.createSpy(),
+    }
+    TestBed.configureTestingModule({
+      providers: [
+        {provide: HttpClient, useValue: httpCMock}
+      ]
+    });
     service = TestBed.inject(ProductsService);
+    service.url = 'url';
   });
 
   it('should be created', () => {
@@ -38,6 +50,21 @@ describe('ProductsService', () => {
 
   it('should return currency symbol', () => {
     expect(service.getCurrencySymbol('eur')).toEqual('€');
-  })
+  });
+
+  it('should call farmer get all api', () => {
+    service.getFarmersProducts(1);
+    expect(httpCMock.get).toHaveBeenCalledWith(`url/product/farmer/1/all`);
+  });
+
+  it('should call farmer add api', () => {
+    service.addProduct(1, {} as Product);
+    expect(httpCMock.post).toHaveBeenCalledWith(`url/product/farmer/1/add`, {});
+  });
+
+  it('should call product edit api', () => {
+    service.editProduct({id: 1} as Product);
+    expect(httpCMock.post).toHaveBeenCalledWith(`url/product/update/1`, {id: 1});
+  });
 
 });

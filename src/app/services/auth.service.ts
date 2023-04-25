@@ -8,11 +8,11 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AuthService {
-  // currentUser: User | null = null;
-  currentUser: User | null = {
-    farmer: false,
-    id: '1'
-  } as any;
+  currentUser: User | null = null;
+  // currentUser: User | null = {
+  //   farmer: false,
+  //   id: '1'
+  // } as any;
   url = environment.url;
 
   constructor(private httpClient: HttpClient) {
@@ -28,13 +28,18 @@ export class AuthService {
 
   setUser(user: User): void {
     this.currentUser = user;
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   logout() {
     this.currentUser = null;
+    localStorage.removeItem('user');
   }
 
   getUser(): User {
+    if(!this.currentUser && localStorage.getItem('user')) {
+      this.currentUser = JSON.parse(localStorage.getItem('user') as string);
+    }
     return this.currentUser as User;
   }
 

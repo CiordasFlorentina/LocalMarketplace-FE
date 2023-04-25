@@ -27,7 +27,7 @@ export class AddProductComponent implements OnInit {
       name: ['', Validators.required],
       image: [null, Validators.required],
       price: [null, Validators.required],
-      availability: [null, Validators.required],
+      available: [null, Validators.required],
       category: [null, Validators.required],
     })
   }
@@ -39,7 +39,7 @@ export class AddProductComponent implements OnInit {
         name: this.product.name,
         image: this.product.image,
         price: this.product.price,
-        availability: this.product.available,
+        available: this.product.available,
         category: this.product.category,
       })
       this.imageString = this.product.image;
@@ -57,7 +57,7 @@ export class AddProductComponent implements OnInit {
       name: this.form.value.name,
       price: this.form.value.price,
       category: this.form.value.category,
-      available: this.form.value.availability,
+      available: this.form.value.available,
       image: this.imageString as string,
     }
 
