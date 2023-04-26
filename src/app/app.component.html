@@ -7,7 +7,7 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-menu-toggle auto-hide="true">
+        <ion-menu-toggle auto-hide="true" *ngIf="user$| async as user">
           <ion-item routerLink="/products" routerDirection="forward" routerLinkActive="ion-activated"
                     *ngIf="!user?.farmer">
             <ion-label>Products</ion-label>

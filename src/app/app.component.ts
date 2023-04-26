@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthService } from './services/auth.service';
 import { User } from './models/user';
 
@@ -8,10 +9,10 @@ import { User } from './models/user';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  user: User| null = null;
+  user$: Observable<User| null>;
 
   constructor(private authS: AuthService) {
-    this.user = this.authS.currentUser;
+    this.user$ = this.authS.currentUser$;
   }
 
   logout() {

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { User } from '../models/user';
 
@@ -9,10 +9,7 @@ import { User } from '../models/user';
 })
 export class AuthService {
   currentUser: User | null = null;
-  // currentUser: User | null = {
-  //   farmer: false,
-  //   id: '1'
-  // } as any;
+  currentUser$ = new BehaviorSubject<User | null>(null);
   url = environment.url;
 
   constructor(private httpClient: HttpClient) {
@@ -40,6 +37,7 @@ export class AuthService {
     if(!this.currentUser && localStorage.getItem('user')) {
       this.currentUser = JSON.parse(localStorage.getItem('user') as string);
     }
+    this.currentUser$.next(this.currentUser);
     return this.currentUser as User;
   }
 
